@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cow Care - Farmer Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Cow Care Dashboard</h1>
+        <p>Manage cow breeds, treatments, and connect with dairy farms</p>
+    </header>
+
+    <section id="breed-section">
+        <h2>Select Cow Breed</h2>
+        <select id="breed-select" title="Select Cow Breed" onchange="fetchTreatmentFromGemini()">
+            <option value="">-- Select Breed --</option>
+            <option value="holstein">Holstein</option>
+            <option value="jersey">Jersey</option>
+            <option value="gir">Gir</option>
+        </select>
+        <div id="breed-info"></div>
+    </section>
+
+    <section id="problem-section">
+        <h2>Problem Section</h2>
+        <form id="problem-form">
+            <label for="cow-id">Cow ID:</label>
+            <input type="text" id="cow-id" placeholder="Enter Cow ID"><br>
+            <label for="problem">Problem:</label>
+            <textarea id="problem" placeholder="Treatment suggestions will appear here"></textarea><br>
+            <button type="button" onclick="addTreatment()">Add Treatment</button>
+        </form>
+    </section>
+
+    <section id="treatment-history">
+        <h2>Treatments</h2>
+        <div id="treatment-box"></div>
+    </section>
+
+    <section id="dairy-connect">
+        <h2>Connect with Dairy Farm</h2>
+        <p>Enter Dairy Farm ID to connect:</p>
+        <input type="text" id="dairy-id" placeholder="Dairy Farm ID"><br>
+        <button type="button" onclick="connectDairy()">Connect</button>
+        <p id="connection-status"></p>
+    </section>
+
+    <!-- Load Gemini SDK and initialize in script.js -->
+    <script type="module" src="script.js"></script>
+</body>
+</html>
